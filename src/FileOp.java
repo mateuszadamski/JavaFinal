@@ -8,9 +8,10 @@ import java.util.Scanner;
 
 public class FileOp {
     List<String> dataList = new ArrayList<>();
+    static String fileName = "data";
     public void FileRead(){
         try {
-            Scanner in = new Scanner(new File("data.txt"));
+            Scanner in = new Scanner(new File(fileName +".txt"));
             while (in.hasNextLine()) {
                 System.out.println(in.nextLine());
                 //dataList.add(in.nextLine());

@@ -57,11 +57,10 @@ public class FileOp {
         try {
             Scanner in = new Scanner(new File("data.txt"));
             //scanner = in.next();
-            while (in.hasNext()) {
-              /*  if(in == letter){
-                    counter++;
-                }*/
-            }
+            /*while(){
+
+            }*/
+
             in.close();
         } catch (FileNotFoundException e) {
             System.out.println("brak pliku");
@@ -73,9 +72,34 @@ public class FileOp {
     }
 
     public void deleteString(String delStr){
+        try {
+            //potrzebuje liste z pliku zeby usunac i zapisac od nowa?
+            Scanner in = new Scanner(new File("data.txt"));
+            PrintWriter pw = new PrintWriter(new File("dane.txt"));
+            String del = in.nextLine();
+            //scanner = in.next();
+            if (!del.trim().equals(delStr)) {
+                pw.println();
+            }
+
+            in.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("brak pliku");
+        }
+
 
     }
-    public void modify(String modStr){
+    public void modify(String modStr,String modMod){
+        try {
+            Scanner in = new Scanner(new File("data.txt"));
+            String rep = in.nextLine();
+            //scanner = in.next();
+            rep = rep.replace(modStr,modMod);
+
+            in.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("brak pliku");
+        }
 
     }
 }

@@ -20,8 +20,9 @@ public class Main {
                 PrintWriter pw = new PrintWriter(FileOp.fileName+".txt");
                 pw.close();
                 pw.flush();
+                System.out.println("Utworzono plik");
             }catch(FileNotFoundException e){
-                System.out.println("brak pliku");
+                System.out.println("nie utworzono pliku");
             }
         }else{
             System.out.println("nie ma takiego numeru");
@@ -29,8 +30,8 @@ public class Main {
         }
         FileOp fileReader = new FileOp();
         fileReader.FileRead();
-        /*fileReader.AddToFile(addThis);
-        fileReader.FileRead();*/
+       // fileReader.AddToFile(addThis);
+        //fileReader.FileRead();*/
        // fileReader.countWords(countThis);
 
     }

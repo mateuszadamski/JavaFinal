@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class FileOp {
     List<String> dataList = new ArrayList<>();
     static String fileName = "data";
-    public void FileRead(){
+    public void FileRead(){//chyba jest ok ale nie zapisuje do tablicy a moglby
         try {
             Scanner in = new Scanner(new File(fileName +".txt"));
             while (in.hasNextLine()) {
@@ -22,9 +22,9 @@ public class FileOp {
         }
 
     }
-    public void AddToFile(String addStrToFile){
+    public void AddToFile(String addStrToFile){ //nie dodaje na koncu tylko nadpisuje plik
         try {
-            PrintWriter pw = new PrintWriter("data.txt");
+            PrintWriter pw = new PrintWriter(fileName +".txt");
             pw.println(addStrToFile);
             pw.close();
             pw.flush();
@@ -33,11 +33,11 @@ public class FileOp {
         }
     }
 
-    public int countWords(String word){
+    public int countWords(String word){ //nie lapie slow wgle (test)
         int counter = 0;
         String test;
         try {
-            Scanner in = new Scanner(new File("data.txt"));
+            Scanner in = new Scanner(new File(fileName +".txt"));
             while (in.hasNextLine()) {
                 test = in.next();
                 if(test.equals(word)){
@@ -52,11 +52,11 @@ public class FileOp {
 
         return counter;
     }
-    public int countChars(char letter){
+    public int countChars(char letter){ //jw
         int counter = 0;
         char scanner;
         try {
-            Scanner in = new Scanner(new File("data.txt"));
+            Scanner in = new Scanner(new File(fileName +".txt"));
             //scanner = in.next();
             /*while(){
 
@@ -75,8 +75,8 @@ public class FileOp {
     public void deleteString(String delStr){
         try {
             //potrzebuje liste z pliku zeby usunac i zapisac od nowa?
-            Scanner in = new Scanner(new File("data.txt"));
-            PrintWriter pw = new PrintWriter(new File("dane.txt"));
+            Scanner in = new Scanner(new File(fileName +".txt"));
+            PrintWriter pw = new PrintWriter(new File(fileName +".txt"));
             String del = in.nextLine();
             //scanner = in.next();
             if (!del.trim().equals(delStr)) {
@@ -90,9 +90,9 @@ public class FileOp {
 
 
     }
-    public void modify(String modStr,String modMod){
+    public void modify(String modStr,String modMod){ //??
         try {
-            Scanner in = new Scanner(new File("data.txt"));
+            Scanner in = new Scanner(new File(fileName +".txt"));
             String rep = in.nextLine();
             //scanner = in.next();
             rep = rep.replace(modStr,modMod);
